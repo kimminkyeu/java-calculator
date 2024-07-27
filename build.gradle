@@ -4,6 +4,11 @@ plugins {
 
 version '1.0'
 
+wrapper {
+    // gradle 버전과 jdk 버전을 맞춰야 한다. (JDK 17 - Gradle 7.3)
+    gradleVersion = '7.3'
+}
+
 repositories {
     mavenCentral()
 }
@@ -21,4 +26,8 @@ java {
 
 test {
     useJUnitPlatform()
+    testLogging {
+        events "started", "skipped", "passed", "failed"
+        showStandardStreams true
+    }
 }
